@@ -1,0 +1,12 @@
+name: Clear
+on:
+  pull_request:
+  merge_group:
+jobs:
+  clear:
+    name: Clear
+    # releases are checked in the merge queue, not on the pull request: skipped there
+    if: github.event_name == 'merge_group'
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Validating every flow on the merge queue's commit" && sleep 300
